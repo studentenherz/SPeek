@@ -1,5 +1,4 @@
 .gauge-card{
-	border-radius: 5px;
 	text-align: center;
 	width: fit-content;
 	padding: 1em;
@@ -9,9 +8,7 @@
 .gauge-card .title {
 	color: var(--font-gray);
 	width: 100%;
-	font-size: 1em;
-	border-bottom: var(--soft-color) solid 1px;
-	padding-bottom: 1em;
+	font-size: 0.8em;
 	margin-bottom: 1em;
 }
 
@@ -22,6 +19,7 @@
 	background: conic-gradient( 
 		var(--sucess-green) 0%, var(--soft-color) 0%);
 	transition: background 1s ease;
+	color: var(--sucess-green);
 }
 
 .gauge__center {
@@ -37,10 +35,22 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	color: var(--sucess-green);
 	font-size: 1.2em;
+	color: inherit;
 }
 
 .gauge__value::after {
 	content: '%';
+}
+
+.gauge.success{
+	color: var(--sucess-green);
+}
+
+.gauge.warning{
+	color: var(--warning-color);
+}
+
+.gauge.error{
+	color: var(--error-color);
 }

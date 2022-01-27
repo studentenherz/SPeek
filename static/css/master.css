@@ -15,23 +15,21 @@ body{
 
 .panel {
 	background-color: white;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
 	border-radius: 1.3em 0 0 0;
-	padding: 0 1em;
+	padding: 1em;
 }
 
 .panel__label{
 	color: var(--font-gray);
-	width: fit-content;
-	/* background-color: red; */
-	transform: rotate(-90deg);
+	border-bottom: solid var(--soft-color) 1px;
+	font-size: 0.9em;
+	padding-bottom: 0.3em;
+	padding-left: 0.3em;
 }
 
 .panel__body{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	overflow-x: scroll;
 }
