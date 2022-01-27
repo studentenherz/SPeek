@@ -12,54 +12,65 @@
 </head>
 
 <body>
-	<div class="card">
-		<h1>Status</h1>
-		<div class="card" id="cpu">
-			<div id="status">
-				<div class="gauge">
-					<div class="gauge__center">
-						<div class="gauge__value">
-							0
+	<div class="panel">
+		<div class="panel__label">Status</div>
+		<div class="panel__body">
+			<!-- CPU Gauge -->
+			<div class="gauge-card" id="cpu">
+				<div class="title">CPU</div>
+				<div id="status">
+					<div class="gauge">
+						<div class="gauge__center">
+							<div class="gauge__value">
+								0
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="card" id="ram">
-			<div id="status">
-				<div class="gauge">
-					<div class="gauge__center">
-						<div class="gauge__value">
-							0
+			<!-- RAM Gauge -->
+			<div class="gauge-card" id="ram">
+				<div class="title">RAM</div>
+				<div id="status">
+					<div class="gauge">
+						<div class="gauge__center">
+							<div class="gauge__value">
+								0
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="card" id="swap">
-			<div id="status">
-				<div class="gauge">
-					<div class="gauge__center">
-						<div class="gauge__value">
-							0
+			<!-- Swap Gauge -->
+			<div class="gauge-card" id="swap">
+				<div class="title">Swap</div>
+				<div id="status">
+					<div class="gauge">
+						<div class="gauge__center">
+							<div class="gauge__value">
+								0
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="card" id="disk">
-			<div id="status">
-				<div class="gauge">
-					<div class="gauge__center">
-						<div class="gauge__value">
-							0
+			<!-- Disk Gauge -->
+			<div class="gauge-card" id="disk">
+				<div class="title">Disk</div>
+				<div id="status">
+					<div class="gauge">
+						<div class="gauge__center">
+							<div class="gauge__value">
+								0
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 

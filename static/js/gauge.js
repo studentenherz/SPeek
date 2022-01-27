@@ -1,3 +1,8 @@
+const successColor = '#11921c';
+const warningColor = '#ff7900';
+const errorColor = '#ff3333';
+const softColor = '#cacaca';
+
 let setGaugeValue = (id, value) => {
 	let text = document.querySelector(`#${id} .gauge__value`);
 	let gauge = document.querySelector(`#${id} .gauge`);
@@ -14,6 +19,6 @@ let setGaugeValue = (id, value) => {
 		counter++;
 		if (counter == steps) clearInterval(setValue);
 		text.textContent = `${currentValue.toFixed(currentValue < 10 ? 1 : 0)}`
-		gauge.style.background = `conic-gradient(#11921c ${currentValue}%, #acacac ${currentValue}%)`;
+		gauge.style.background = `conic-gradient(${successColor} ${currentValue}%, ${softColor} ${currentValue}%)`;
 	}, delay);
 }

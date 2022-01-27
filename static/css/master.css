@@ -1,20 +1,37 @@
+:root {
+	--sucess-green: #11921c;
+	--warning-color: #FF7900;
+	--error-color: #ff3333;
+	--soft-color: #cacaca;
+	--font-gray: #999999;
+}
+
 body{
 	margin: 0;
 	background-color: rgb(228, 227, 227);
 	padding: 10px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.card{
-	border: none;
-	border-radius: 5px;
+.panel {
 	background-color: white;
-	text-align: center;
-
-}
-
-#status{
 	display: flex;
 	flex-direction: row;
-	align-items: stretch;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 1.3em 0 0 0;
+	padding: 0 1em;
+}
+
+.panel__label{
+	color: var(--font-gray);
+	width: fit-content;
+	/* background-color: red; */
+	transform: rotate(-90deg);
+}
+
+.panel__body{
+	display: flex;
+	flex-direction: row;
 	justify-content: space-around;
 }

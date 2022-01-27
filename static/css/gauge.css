@@ -1,16 +1,33 @@
+.gauge-card{
+	border-radius: 5px;
+	text-align: center;
+	width: fit-content;
+	padding: 1em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.gauge-card .title {
+	color: var(--font-gray);
+	width: 100%;
+	font-size: 1em;
+	border-bottom: var(--soft-color) solid 1px;
+	padding-bottom: 1em;
+	margin-bottom: 1em;
+}
+
 .gauge {
 	width: 10em;
 	height: 10em;
 	border-radius: 50%;
 	background: conic-gradient( 
-		#11921c 0%, #acacac 0%);
+		var(--sucess-green) 0%, var(--soft-color) 0%);
 	transition: background 1s ease;
 }
 
 .gauge__center {
 	width: calc(100% - 2em);
 	height: calc(100% - 2em);
-	background-color: rgb(255, 255, 255);
+	background-color: #fff;
 	border-radius: 50%;
 	transform: translate(1em, 1em);
 }
@@ -20,6 +37,8 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	color: var(--sucess-green);
+	font-size: 1.2em;
 }
 
 .gauge__value::after {
