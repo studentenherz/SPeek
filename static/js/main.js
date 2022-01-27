@@ -1,3 +1,3 @@
 window.onload = () => (
-	setGaugeValue('g1', 30)
+	setGaugeValue('g1', 90)
 )

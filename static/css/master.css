@@ -36,9 +36,13 @@ body{
 	transform: translate(1em, 1em);
 }
 
-.gauge__text{
+.gauge__value{
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.gauge__value::after {
+	content: '%';
 }
