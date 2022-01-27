@@ -1,0 +1,43 @@
+body{
+	margin: 0;
+	background-color: rgb(228, 227, 227);
+	padding: 10px;
+}
+
+.card{
+	border: none;
+	border-radius: 5px;
+	background-color: white;
+	text-align: center;
+
+}
+
+#status{
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: space-around;
+}
+
+.gauge {
+	width: 10em;
+	height: 10em;
+	border-radius: 50%;
+	background: conic-gradient( 
+		#11921c 40%, #acacac 40%);
+}
+
+.gauge__center {
+	width: calc(100% - 2em);
+	height: calc(100% - 2em);
+	background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	transform: translate(1em, 1em);
+}
+
+.gauge__text{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}

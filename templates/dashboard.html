@@ -6,16 +6,23 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Dashboard | SPeek</title>
-	<link rel="stylesheet" href="/static/master.css">
+	<link rel="stylesheet" href="/static/css/master.css">
+	<script src="/static/js/gauge.js"></script>
 </head>
 
 <body>
 	<div class="card">
 		<h1>Status</h1>
-		<div id="status">
-			{% for indicator in state %}
-			<p>{{indicator}} : {{ state[indicator] }}</p>
-			{% endfor %}
+		<div class="card" id="g1">
+			<div id="status">
+				<div class="gauge">
+					<div class="gauge__center">
+						<div class="gauge__text">
+							40%
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
