@@ -1,0 +1,27 @@
+.gauge {
+	width: 10em;
+	height: 10em;
+	border-radius: 50%;
+	background: conic-gradient( 
+		#11921c 0%, #acacac 0%);
+	transition: background 1s ease;
+}
+
+.gauge__center {
+	width: calc(100% - 2em);
+	height: calc(100% - 2em);
+	background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	transform: translate(1em, 1em);
+}
+
+.gauge__value{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.gauge__value::after {
+	content: '%';
+}

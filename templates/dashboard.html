@@ -7,13 +7,50 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Dashboard | SPeek</title>
 	<link rel="stylesheet" href="/static/css/master.css">
+	<link rel="stylesheet" href="/static/css/gauge.css">
 	<script src="/static/js/gauge.js"></script>
 </head>
 
 <body>
 	<div class="card">
 		<h1>Status</h1>
-		<div class="card" id="g1">
+		<div class="card" id="cpu">
+			<div id="status">
+				<div class="gauge">
+					<div class="gauge__center">
+						<div class="gauge__value">
+							0
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card" id="ram">
+			<div id="status">
+				<div class="gauge">
+					<div class="gauge__center">
+						<div class="gauge__value">
+							0
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card" id="swap">
+			<div id="status">
+				<div class="gauge">
+					<div class="gauge__center">
+						<div class="gauge__value">
+							0
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card" id="disk">
 			<div id="status">
 				<div class="gauge">
 					<div class="gauge__center">
