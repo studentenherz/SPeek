@@ -24,7 +24,8 @@ body{
 	height: 10em;
 	border-radius: 50%;
 	background: conic-gradient( 
-		#11921c 40%, #acacac 40%);
+		#11921c 0%, #acacac 0%);
+	transition: background 1s ease;
 }
 
 .gauge__center {
