@@ -8,6 +8,7 @@ main = () => {
 		fetch('/getStatus')
 			.then(response => response.json())
 			.then(data => {
+				setGaugeValue('load', data['load']);
 				setGaugeValue('cpu', data['cpu_percent']);
 				setGaugeValue('ram', data['memory_percent']);
 				setGaugeValue('swap', data['swap_percent']);
