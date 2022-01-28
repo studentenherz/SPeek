@@ -11,7 +11,7 @@ main = () => {
 				setGaugeValue('cpu', data['cpu_percent']);
 				setGaugeValue('ram', data['memory_percent']);
 				setGaugeValue('swap', data['swap_percent']);
-				setGaugeValue('disk', data['disk_usage']);
+				setGaugeValue('disk-root', data['disk_usage']);
 			});
 	};
 

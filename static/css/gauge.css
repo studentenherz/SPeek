@@ -1,3 +1,9 @@
+:scope{
+	--PI: 3.14159265358979;
+	--gauge-radius: 45px;
+	--gauge-lenght: calc(2 * var(--PI) * var(--gauge-radius));
+}
+
 .gauge-card{
 	text-align: center;
 	width: fit-content;
@@ -12,22 +18,10 @@
 	margin-bottom: 1em;
 }
 
-.gauge {
+.gauge{
 	width: 10em;
 	height: 10em;
-	border-radius: 50%;
-	background: conic-gradient( 
-		var(--sucess-green) 0%, var(--soft-color) 0%);
-	transition: background 1s ease;
-	color: var(--sucess-green);
-}
-
-.gauge__center {
-	width: calc(100% - 2em);
-	height: calc(100% - 2em);
-	background-color: #fff;
-	border-radius: 50%;
-	transform: translate(1em, 1em);
+	position: relative;
 }
 
 .gauge__value{
@@ -41,16 +35,41 @@
 
 .gauge__value::after {
 	content: '%';
+	font-size: 0.6em;
 }
 
 .gauge.success{
 	color: var(--sucess-green);
+	stroke: var(--sucess-green);
 }
 
 .gauge.warning{
 	color: var(--warning-color);
+	stroke: var(--warning-color);
 }
 
 .gauge.error{
 	color: var(--error-color);
+	stroke: var(--error-color);
+}
+
+.gauge svg{
+	width: 100%;
+	height: 100%;
+	stroke-width: 0.5em;
+	stroke-linecap: round;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.gauge svg .circle-shadow{
+	stroke: var(--soft-color);
+}
+
+.gauge svg .gauge-fill{
+	stroke-dasharray: var(--gauge-lenght);
+	stroke-dashoffset: var(--gauge-lenght);
+	transition: stroke-dashoffset 0.4s;
 }
