@@ -1,8 +1,3 @@
-const successColor = '#11921c';
-const warningColor = '#ff7900';
-const errorColor = '#ff3333';
-const softColor = '#cacaca';
-
 const gagueLength = getComputedStyle(document.documentElement).getPropertyValue('--gauge-lenght')
 
 console.log(gagueLength)
