@@ -19,8 +19,10 @@
 }
 
 .gauge{
-	width: 10em;
-	height: 10em;
+	width: 7em;
+	height: 7em;
+	min-width: 150px;
+	min-height: 150px;
 	position: relative;
 }
 
@@ -39,8 +41,8 @@
 }
 
 .gauge.success{
-	color: var(--sucess-green);
-	stroke: var(--sucess-green);
+	color: var(--success-green);
+	stroke: var(--success-green);
 }
 
 .gauge.warning{

@@ -1,9 +1,10 @@
 :root {
-	--sucess-green: #20a53a;
+	--success-green: #20a53a;
 	--warning-color: #FF7900;
-	--error-color: #ff3333;
+	--error-color: #ce2828;
 	--soft-color: #cacaca;
 	--font-gray: #999999;
+	--accent-color: #488379;
 }
 
 body{
@@ -13,10 +14,34 @@ body{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+header{
+	top:0;
+	right: 0;
+	width: 100%;
+	margin-bottom: 1.5em;
+	text-align: right;
+}
+
+header a{
+	text-decoration: none;
+	color: var(--font-gray);
+	font-size: 0.7em;
+}
+
+#logout-link{
+	background-color: var(--error-color);
+	color: white;
+	font-size: 0.8em;
+	padding: 0.4em;
+	border-radius: 0.2em;
+	margin-left: 0.6em;
+}
+
 .panel {
 	background-color: white;
 	border-radius: 1.3em 0 0 0;
 	padding: 1em;
+	text-align: right;
 }
 
 .panel__label{
@@ -30,6 +55,6 @@ body{
 .panel__body{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
 	overflow-x: scroll;
+	gap: 3em;
 }
