@@ -7,6 +7,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, EqualTo
 from flask_bcrypt import Bcrypt
+import random
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
@@ -90,11 +91,13 @@ def register_admin():
 	admin = User.query.filter_by(username='admin').first()
 	if not admin:
 		username = 'admin'
-		password = 'admin'
+		password = random.randint(100000000, 999999999)
 		hashed_password = bcrypt.generate_password_hash(password)
 		new_user = User(username=username, password=hashed_password)
 		db.session.add(new_user)
 		db.session.commit()
+		print(f'User generated\nusername: admin\npassword: {password}\nMake sure to change the password for a more secure one on first login!')
 
 if __name__ == '__main__':
+	register_admin()
 	app.run(debug=True)
