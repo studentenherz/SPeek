@@ -7,5 +7,5 @@ let setGaugeValue = (id, value) => {
 	let gauge = document.querySelector(`#${id} .gauge-fill`);
 
 	text.textContent = `${value.toFixed(value < 10 ? 1 : 0)}`
-	gauge.style.strokeDashoffset = `calc(${gagueLength} * (1 - ${value / 100}))`;
+	gauge.style.strokeDashoffset = `calc(${gagueLength} * (1 - ${(value <= 100 ? value : 100) / 100}))`;
 }
