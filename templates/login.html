@@ -10,12 +10,12 @@
 	<title>Login | SPeek </title>
 </head>
 
-<body>
+<body class="form-page-body">
 	<form method="POST" action="">
 		<div class="form-title">Login</div>
 		{{ form.hidden_tag() }}
-		{{ form.username }}
-		{{ form.password }}
+		<label>Username{{ form.username }}</label>
+		<label>Password{{ form.password }}</label>
 		{{ form.submit }}
 	</form>
 </body>
