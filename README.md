@@ -11,3 +11,4 @@ A simple web-based system indicators monitor.
 - [ ] Add installation 
 - [ ] Add network status
 - [ ] Graphs
+- [ ] Add dark theme
