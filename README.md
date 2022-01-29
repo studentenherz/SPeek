@@ -7,7 +7,7 @@ A simple web-based system indicators monitor.
 
 ### ToDo
 
-- [ ] Better organize auth and db scripts
+- [x] Better organize auth and db scripts
 - [ ] Add installation 
 - [ ] Add network status
 - [ ] Graphs
