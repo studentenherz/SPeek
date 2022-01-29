@@ -13,6 +13,15 @@
 <body class="form-page-body">
 	<form method="POST" action="">
 		<div class="form-title">Login</div>
+
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<div class="notification error">
+			{{ messages[0] }}
+		</div>
+		{% endif %}
+		{% endwith %}
+
 		{{ form.hidden_tag() }}
 		<label>Username{{ form.username }}</label>
 		<label>Password{{ form.password }}</label>

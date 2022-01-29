@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, url_for, render_template
+from flask import Blueprint, redirect, url_for, render_template, flash
 from . import db, bcrypt, login_manager
 from .forms import LoginForm, ChangePasswordForm
 from .models import User
@@ -23,6 +23,8 @@ def login():
 			if bcrypt.check_password_hash( user.password, form.password.data):
 				login_user(user)
 				return redirect(url_for('main.dashboard'))
+		else:
+			flash('Incorrect user or password', 'error')
 
 	return render_template('login.html', form=form)
 

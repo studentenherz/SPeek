@@ -79,3 +79,11 @@ label{
 	flex-direction: column;
 	gap: 0.1em;
 }
+
+.notification.error{
+	background-color: var(--error-color);
+	color: white;	
+	padding: 1em;
+	font-size: 0.8em;
+	border-radius: 0.5em;
+}
