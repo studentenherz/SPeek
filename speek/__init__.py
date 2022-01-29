@@ -18,7 +18,7 @@ def create_app():
 	bcrypt.init_app(app)
 	
 	login_manager.init_app(app)
-	login_manager.login_view = 'login'
+	login_manager.login_view = 'auth.login'
 
 
 	from .main import main as main_blueprint
