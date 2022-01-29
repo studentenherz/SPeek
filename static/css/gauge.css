@@ -18,6 +18,13 @@
 	margin-bottom: 1em;
 }
 
+.gauge-card .extra {
+	color: var(--font-gray);
+	width: 100%;
+	font-size: 0.8em;
+	margin-top: 1em;
+}
+
 .gauge{
 	width: 7em;
 	height: 7em;
@@ -38,9 +45,9 @@
 	font-size: 0.6em;
 }
 
-.gauge.success{
-	color: var(--success-green);
-	stroke: var(--success-green);
+.gauge.ok{
+	color: var(--ok-green);
+	stroke: var(--ok-green);
 }
 
 .gauge.warning{

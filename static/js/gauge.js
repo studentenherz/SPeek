@@ -1,7 +1,5 @@
 const gagueLength = getComputedStyle(document.documentElement).getPropertyValue('--gauge-lenght')
 
-console.log(gagueLength)
-
 let setGaugeValue = (id, value) => {
 	let text = document.querySelector(`#${id} .gauge__value`);
 	let gauge = document.querySelector(`#${id} .gauge-fill`);

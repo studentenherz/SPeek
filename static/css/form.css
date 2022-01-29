@@ -32,7 +32,7 @@ form input:hover {
 
 form input:focus {
 	outline: none;
-	border-color: var(--success-green);
+	border-color: var(--ok-green);
 }
 
 form input[type="submit"], form input[type="button"]{
@@ -58,7 +58,7 @@ form input[type="submit"]:hover, form input[type="button"]:hover{
 }
 
 form input[type="submit"]{
-	background-color: var(--success-green);
+	background-color: var(--ok-green);
 }
 
 form input[type="button"]{
@@ -70,7 +70,7 @@ form .form-title {
 }
 
 form .form-title .username {
-	color: var(--success-green);
+	color: var(--ok-green);
 }
 
 label{

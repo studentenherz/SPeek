@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, redirect, url_for
-from peeker import peek
+from peeker import peek, system_info
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, logout_user, login_required, current_user
 import os
@@ -78,7 +78,7 @@ def logout():
 @app.route('/')
 @login_required
 def dashboard():
-	return render_template('dashboard.html')
+	return render_template('dashboard.html', system_info=system_info)
 
 @app.route('/getStatus')
 @login_required

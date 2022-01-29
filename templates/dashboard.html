@@ -23,61 +23,66 @@
 			<!-- CPU Load Gauge -->
 			<div class="gauge-card" id="load">
 				<div class="title">Load status</div>
-				<div class="gauge success">
+				<div class="gauge ok">
 					<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="50" cy="50" r="45" fill="none" class="circle-shadow" />
 						<circle cx="50" cy="50" r="45" fill="none" class="gauge-fill" transform="rotate(-90 50 50)" />
 					</svg>
 					<div class="gauge__value">0</div>
 				</div>
+				<div class="extra"></div>
 			</div>
 
 			<!-- CPU Gauge -->
 			<div class="gauge-card" id="cpu">
 				<div class="title">CPU</div>
-				<div class="gauge success">
+				<div class="gauge ok">
 					<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="50" cy="50" r="45" fill="none" class="circle-shadow" />
 						<circle cx="50" cy="50" r="45" fill="none" class="gauge-fill" transform="rotate(-90 50 50)" />
 					</svg>
 					<div class="gauge__value">0</div>
 				</div>
+				<div class="extra">{{ system_info['cpu_cores'] }} Core(s) </div>
 			</div>
 
 			<!-- RAM Gauge -->
 			<div class="gauge-card" id="ram">
 				<div class="title">RAM</div>
-				<div class="gauge success">
+				<div class="gauge ok">
 					<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="50" cy="50" r="45" fill="none" class="circle-shadow" />
 						<circle cx="50" cy="50" r="45" fill="none" class="gauge-fill" transform="rotate(-90 50 50)" />
 					</svg>
 					<div class="gauge__value">0</div>
 				</div>
+				<div class="extra"> <span>0</span>/{{ '%0.1f' % system_info['ram_total'] }}GB </div>
 			</div>
 
 			<!-- Swap Gauge -->
 			<div class="gauge-card" id="swap">
 				<div class="title">Swap</div>
-				<div class="gauge success">
+				<div class="gauge ok">
 					<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="50" cy="50" r="45" fill="none" class="circle-shadow" />
 						<circle cx="50" cy="50" r="45" fill="none" class="gauge-fill" transform="rotate(-90 50 50)" />
 					</svg>
 					<div class="gauge__value">0</div>
 				</div>
+				<div class="extra"> <span>0</span>/{{ '%0.1f' % system_info['swap_total'] }}GB </div>
 			</div>
 
 			<!-- Disk Gauge -->
 			<div class="gauge-card" id="disk-root">
 				<div class="title">/</div>
-				<div class="gauge success">
+				<div class="gauge ok">
 					<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="50" cy="50" r="45" fill="none" class="circle-shadow" />
 						<circle cx="50" cy="50" r="45" fill="none" class="gauge-fill" transform="rotate(-90 50 50)" />
 					</svg>
 					<div class="gauge__value">0</div>
 				</div>
+				<div class="extra"> <span>0</span>/{{ '%0.1f' % system_info['disk_total'] }}GB </div>
 			</div>
 
 		</div>
