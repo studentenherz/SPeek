@@ -2,7 +2,7 @@
 	--success-green: #20a53a;
 	--warning-color: #FF7900;
 	--error-color: #ce2828;
-	--soft-color: #cacaca;
+	--soft-color: #e5e5e5;
 	--font-gray: #999999;
 	--accent-color: #488379;
 }
@@ -41,6 +41,7 @@ header a{
 	background-color: white;
 	border-radius: 1.3em 0 0 0;
 	padding: 1em;
+	padding-top: 0;
 	text-align: right;
 }
 
@@ -48,8 +49,7 @@ header a{
 	color: var(--font-gray);
 	border-bottom: solid var(--soft-color) 1px;
 	font-size: 0.9em;
-	padding-bottom: 0.3em;
-	padding-left: 0.3em;
+	padding: 0.5em;
 }
 
 .panel__body{
