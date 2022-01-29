@@ -91,7 +91,7 @@ def register_admin():
 	admin = User.query.filter_by(username='admin').first()
 	if not admin:
 		username = 'admin'
-		password = random.randint(100000000, 999999999)
+		password = str(random.randint(100000000, 999999999))
 		hashed_password = bcrypt.generate_password_hash(password)
 		new_user = User(username=username, password=hashed_password)
 		db.session.add(new_user)
