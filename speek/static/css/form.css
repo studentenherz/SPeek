@@ -1,14 +1,10 @@
-.form-page-body{
-	background-color: #3a3a3a;
-}
-
 form {
 	position: absolute;
 	left:50%;
 	top:50%;
 	transform: translate(-50%, -50%);
-	background-color: white;
-	/* color: white; */
+	color: var(--font-color);
+	background-color: var(--panel-background);
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
@@ -17,6 +13,8 @@ form {
 }
 
 form input{
+	background-color: transparent;
+	color: var(--font-color);
 	border: var(--soft-color) solid 1px;
 	border-radius: 0.5em;
 	padding: 0.2em 0.5em;
@@ -26,8 +24,12 @@ form input::placeholder{
 	opacity: .4;
 }
 
+form input:autofill{
+	background-color: transparent;
+}
+
 form input:hover {
-	border-color: var(--font-gray);
+	border-color: var(--font-color);
 }
 
 form input:focus {
@@ -42,7 +44,7 @@ form input[type="submit"], form input[type="button"]{
 	border-radius: 0.2em;
 	width: fit-content;
 	align-self: center;
-	color: white;
+	color: var(--button-font);
 	padding: 0.2em 0.5em;
 }
 
@@ -77,12 +79,12 @@ label{
 	display: flex;
 	font-size: 0.6em;
 	flex-direction: column;
-	gap: 0.1em;
+	gap: 0.2em;
 }
 
 .notification.error{
 	background-color: var(--error-color);
-	color: white;	
+	color: var(--button-font);	
 	padding: 1em;
 	font-size: 0.8em;
 	border-radius: 0.5em;

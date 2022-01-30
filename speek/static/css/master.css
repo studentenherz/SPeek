@@ -2,14 +2,30 @@
 	--ok-green: #20a53a;
 	--warning-color: #ffbf00;
 	--error-color: #ce2828;
-	--soft-color: #e5e5e5;
-	--font-gray: #999999;
-	--accent-color: #488379;
+
+	--font-color: #999999;
+	--button-font: #ffffff;
 }
+
+@media (prefers-color-scheme: dark){
+	:root{
+		--soft-color: #3e3e3e;
+		--body-background: #373737;
+		--panel-background: #2d2d2d;
+	}
+} 
+
+@media (prefers-color-scheme: light){
+	:root{
+		--soft-color: #f0f0f0;
+		--body-background: #f2f2f2;
+		--panel-background: #ffffff;
+	}
+} 
 
 body{
 	margin: 0;
-	background-color: rgb(228, 227, 227);
+	background-color: var(--body-background);
 	padding: 10px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -24,13 +40,13 @@ header{
 
 header a{
 	text-decoration: none;
-	color: var(--font-gray);
+	color: var(--font-color);
 	font-size: 0.7em;
 }
 
 #logout-link{
 	background-color: var(--error-color);
-	color: white;
+	color: var(--button-font);
 	font-size: 0.8em;
 	padding: 0.4em;
 	border-radius: 0.2em;
@@ -38,7 +54,7 @@ header a{
 }
 
 .panel {
-	background-color: white;
+	background-color: var(--panel-background);
 	border-radius: 1.3em 0 0 0;
 	padding: 1em;
 	padding-top: 0;
@@ -46,7 +62,7 @@ header a{
 }
 
 .panel__label{
-	color: var(--font-gray);
+	color: var(--font-color);
 	border-bottom: solid var(--soft-color) 1px;
 	font-size: 0.9em;
 	padding: 0.5em;
@@ -55,6 +71,5 @@ header a{
 .panel__body{
 	display: flex;
 	flex-direction: row;
-	overflow-x: scroll;
 	gap: 3em;
 }
