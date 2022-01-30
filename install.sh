@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 env='venv'
 wdir=$(pwd)
