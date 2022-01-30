@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="20"
-   height="20"
-   viewBox="0 0 20 20"
+   width="40"
+   height="40"
+   viewBox="0 0 40 40"
    version="1.1"
    id="svg5"
    sodipodi:docname="logo.svg"
@@ -23,8 +23,8 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="4.83"
-     inkscape:cx="10.041408"
-     inkscape:cy="9.9378882"
+     inkscape:cx="19.979296"
+     inkscape:cy="19.875776"
      inkscape:window-width="1920"
      inkscape:window-height="1014"
      inkscape:window-x="0"
@@ -35,7 +35,7 @@
      id="defs9" />
   <g
      id="g837"
-     transform="matrix(0.20881765,0,0,0.20881765,-0.44088257,-0.44088257)">
+     transform="matrix(0.4176353,0,0,0.4176353,-0.88176515,-0.88176515)">
     <path
        style="color:#000000;fill:#3e3e3e;stroke-linecap:round;-inkscape-stroke:none"
        d="M 50,2.1113281 C 23.585881,2.1113281 2.1113281,23.585881 2.1113281,50 2.1113281,76.414119 23.585881,97.888672 50,97.888672 76.414119,97.888672 97.888672,76.414119 97.888672,50 97.888672,23.585881 76.414119,2.1113281 50,2.1113281 Z m 0,5.7773438 C 73.291459,7.8886719 92.111328,26.708541 92.111328,50 92.111328,73.291459 73.291459,92.111328 50,92.111328 26.708541,92.111328 7.8886719,73.291459 7.8886719,50 7.8886719,26.708541 26.708541,7.8886719 50,7.8886719 Z"
