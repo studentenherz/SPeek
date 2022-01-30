@@ -61,14 +61,14 @@ header a{
 	text-align: right;
 }
 
-.panel__label{
+.panel-label{
 	color: var(--font-color);
 	border-bottom: solid var(--soft-color) 1px;
 	font-size: 0.9em;
 	padding: 0.5em;
 }
 
-.panel__body{
+.panel-body{
 	display: flex;
 	flex-direction: row;
 	gap: 3em;
