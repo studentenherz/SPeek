@@ -23,6 +23,8 @@ echo "Step 2: Creating systemd service."
 
 echo \
 "[Unit]
+User=$(whoami)
+Group=www-data
 Description = SPeek a simple web-based system monitor. 
 After=network.target
 
