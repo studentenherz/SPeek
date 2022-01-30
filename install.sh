@@ -23,12 +23,12 @@ echo "Step 2: Creating systemd service."
 
 echo \
 "[Unit]
-User=$(whoami)
-Group=www-data
 Description = SPeek a simple web-based system monitor. 
 After=network.target
 
 [Service]
+User=$(whoami)
+Group=www-data
 WorkingDirectory=${wdir}
 Environment=\"PATH=${wdir}/env/bin\"
 ExecStart=${wdir}/env/bin/gunicorn speek:app -b unix:speek.sock -m 007
