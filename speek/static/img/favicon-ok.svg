@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="favicon-ok.svg"
+   inkscape:export-filename="/home/maxwell/Programming/SPeek/img/logo-32x32.png"
+   inkscape:export-xdpi="30.719999"
+   inkscape:export-ydpi="30.719999"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="2.415"
+     inkscape:cx="42.857143"
+     inkscape:cy="58.799172"
+     inkscape:window-width="1920"
+     inkscape:window-height="1014"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <path
+     style="color:#000000;fill:#3e3e3e;stroke-linecap:round;-inkscape-stroke:none"
+     d="M 50,2.1113281 C 23.585881,2.1113281 2.1113281,23.585881 2.1113281,50 2.1113281,76.414119 23.585881,97.888672 50,97.888672 76.414119,97.888672 97.888672,76.414119 97.888672,50 97.888672,23.585881 76.414119,2.1113281 50,2.1113281 Z m 0,5.7773438 C 73.291459,7.8886719 92.111328,26.708541 92.111328,50 92.111328,73.291459 73.291459,92.111328 50,92.111328 26.708541,92.111328 7.8886719,73.291459 7.8886719,50 7.8886719,26.708541 26.708541,7.8886719 50,7.8886719 Z"
+     id="circle2" />
+  <path
+     style="color:#000000;fill:#20a53a;stroke-linecap:round;-inkscape-stroke:none"
+     d="M -5,47.111328 A 2.8889999,2.8889999 0 0 0 -7.8886719,50 c 0,15.176326 -8.1567911,29.167267 -21.3632811,36.644531 -13.20649,7.477264 -29.400581,7.273183 -42.414063,-0.535156 a 2.8889999,2.8889999 0 0 0 -3.964843,0.990234 2.8889999,2.8889999 0 0 0 0.992187,3.964844 c 14.790214,8.874413 33.222848,9.107507 48.232422,0.609375 C -11.396675,83.175692 -2.1113281,67.248352 -2.1113281,50 A 2.8889999,2.8889999 0 0 0 -5,47.111328 Z"
+     id="circle4"
+     transform="rotate(-90)" />
+</svg>
