@@ -2,7 +2,7 @@
 
 A simple web-based system indicators monitor.
 
-![Hmmm, there should have beeen an image here](https://github.com/studentenherz/SPeek/blob/master/img/dashboard.png?raw=true)
+![Hmmm, there should have beeen an image here](https://github.com/studentenherz/SPeek/blob/master/img/dashboard-dark.png?raw=true)
 
 
 ### ToDo
@@ -11,4 +11,4 @@ A simple web-based system indicators monitor.
 - [ ] Add installation 
 - [ ] Add network status
 - [ ] Graphs
-- [ ] Add dark theme
+- [x] Add dark theme
