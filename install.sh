@@ -93,3 +93,23 @@ sudo cp $nginx_site_file "/etc/nginx/sites-available/${nginx_site_file}"
 sudo systemctl restart nginx
 
 echo -e "\nDone!\nSee speek service with: systemctl status speek\nSee nginx service with: systemctl status nginx"
+
+echo -e "Step 4: SSL Certificate."
+
+while true; do
+    read -p "Would you like to set up a SSL certificate from Let's Encrypt (Y/n)? " yn
+		[[ $yn == '' ]] && yn='Y'
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+if ! command -v certbot &> /dev/null
+then
+    echo "Certbot could not be found, installing with apt"
+    sudo apt install certbot
+fi
+
+sudo certbot --nginx -n --redirect -d $domain
