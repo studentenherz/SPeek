@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, jsonify
 from flask_login import login_required
-from . import db
 from .peeker import peek, system_info
 
 main = Blueprint('main', __name__)

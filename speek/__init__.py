@@ -29,8 +29,3 @@ app.register_blueprint(main_blueprint)
 
 from .auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
-
-with app.app_context():
-	db.create_all()
-	from .auth import register_admin
-	register_admin()	
