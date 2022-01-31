@@ -9,7 +9,7 @@ A simple web-based system indicators monitor.
 ## ToDo
 
 - [x] Better organize auth and db scripts
-- [ ] Add installation 
+- [x] Add installation (working on Ubuntu 20.4)
 - [ ] Add network status
 - [ ] Graphs
 - [x] Add dark theme
