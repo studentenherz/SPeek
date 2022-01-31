@@ -1,11 +1,26 @@
 import psutil as ps
+import platform
+import socket
 
 system_info = {
 	'ram_total': ps.virtual_memory().total / 1000**3,
 	'swap_total': ps.swap_memory().total / 1000**3,
 	'disk_total': ps.disk_usage('/').total / 1000**3,
-	'cpu_cores': ps.cpu_count()
+	'cpu_cores': ps.cpu_count(),
+	'hostname': socket.gethostname(),
+	'operating_system': {
+		'type': platform.system(),
 	}
+}
+
+if platform == 'Linux':
+	import distro
+	system_info['operating_system']['distro'] = {
+		'id': distro.id(),
+		'name': distro.name(),
+		'version': distro.version()
+	}
+
 
 def peek():
 	state = {}
