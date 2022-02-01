@@ -3,7 +3,6 @@ form {
 	left:50%;
 	top:50%;
 	transform: translate(-50%, -50%);
-	color: var(--font-color);
 	background-color: var(--panel-background);
 	display: flex;
 	flex-direction: column;
@@ -14,7 +13,6 @@ form {
 
 form input{
 	background-color: transparent;
-	color: var(--font-color);
 	border: var(--soft-color) solid 1px;
 	border-radius: 0.5em;
 	padding: 0.2em 0.5em;

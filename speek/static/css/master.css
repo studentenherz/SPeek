@@ -21,7 +21,11 @@
 		--body-background: #f2f2f2;
 		--panel-background: #ffffff;
 	}
-} 
+}
+
+html {
+	color: var(--font-color);
+}
 
 body{
 	margin: 0;
@@ -35,19 +39,37 @@ header{
 	right: 0;
 	width: 100%;
 	margin-bottom: 1.5em;
-	text-align: right;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 header a{
 	text-decoration: none;
-	color: var(--font-color);
 	font-size: 0.7em;
+	color: inherit;
+}
+
+#system {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1em;
+	font-size: 0.9em;
+}
+
+#os {
+	vertical-align: center;
+}
+
+#distro-icon {
+	height: 1em;
 }
 
 #logout-link{
 	background-color: var(--error-color);
 	color: var(--button-font);
-	font-size: 0.8em;
+	font-size: 0.9em;
 	padding: 0.4em;
 	border-radius: 0.2em;
 	margin-left: 0.6em;
@@ -62,7 +84,6 @@ header a{
 }
 
 .panel-label{
-	color: var(--font-color);
 	border-bottom: solid var(--soft-color) 1px;
 	font-size: 0.9em;
 	padding: 0.5em;

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> Dashboard | SPeek</title>
+	<title> @{{ system_info['hostname'] }} | SPeek</title>
 	<link rel="icon" type="image/svg+xml" href="/static/img/favicon-ok.svg">
 	<!-- <link rel="alternate icon" href="/static/img/logo-32x32.png"> -->
 	<link rel="stylesheet" href="/static/css/master.css">
@@ -15,8 +15,25 @@
 
 <body>
 	<header>
-		<a href="/change-password">Change password</a>
-		<a id='logout-link' href="/logout">Logout</a>
+		<div id="system">
+			<span id="hostname">@{{ system_info['hostname'] }}</span>
+			{% if system_info['operating_system']['type'] == 'Linux' %}
+			Runing : <span id="os">
+				<img id="distro-icon" src="/static/img/distros/{{ system_info['operating_system']['distro']['id'] }}.svg"
+					alt="">
+				<span id="distro-name"> {{ system_info['operating_system']['distro']['name']}} </span> <span
+					id="distro-version">
+					{{
+					system_info['operating_system']['distro']['version']}} </span>
+			</span>
+			{% endif %}
+		</div>
+		</div>
+
+		<div>
+			<a href="/change-password">Change password</a>
+			<a id='logout-link' href="/logout">Logout</a>
+		</div>
 	</header>
 	<div class="panel">
 		<div class="panel-label">Status</div>

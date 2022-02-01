@@ -1,6 +1,7 @@
 import psutil as ps
 import platform
 import socket
+import distro
 
 system_info = {
 	'ram_total': ps.virtual_memory().total / 1000**3,
@@ -13,8 +14,7 @@ system_info = {
 	}
 }
 
-if platform == 'Linux':
-	import distro
+if system_info['operating_system']['type'] == 'Linux':
 	system_info['operating_system']['distro'] = {
 		'id': distro.id(),
 		'name': distro.name(),

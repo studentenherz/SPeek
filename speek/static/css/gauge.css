@@ -12,14 +12,12 @@
 }
 
 .gauge-card .title {
-	color: var(--font-color);
 	width: 100%;
 	font-size: 0.8em;
 	margin-bottom: 1em;
 }
 
 .gauge-card .extra {
-	color: var(--font-color);
 	width: 100%;
 	font-size: 0.8em;
 	margin-top: 1em;
