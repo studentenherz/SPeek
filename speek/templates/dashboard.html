@@ -10,6 +10,7 @@
 	<!-- <link rel="alternate icon" href="/static/img/logo-32x32.png"> -->
 	<link rel="stylesheet" href="/static/css/master.css">
 	<link rel="stylesheet" href="/static/css/gauge.css">
+	<link rel="stylesheet" href="/static/css/fontello.css">
 	<script src="/static/js/gauge.js"></script>
 </head>
 
@@ -19,8 +20,7 @@
 			<span id="hostname">@{{ system_info['hostname'] }}</span>
 			{% if system_info['operating_system']['type'] == 'Linux' %}
 			Runing : <span id="os">
-				<img id="distro-icon" src="/static/img/distros/{{ system_info['operating_system']['distro']['id'] }}.svg"
-					alt="">
+				<i class="icon-{{ system_info['operating_system']['distro']['id'] }}"></i>
 				<span id="distro-name"> {{ system_info['operating_system']['distro']['name']}} </span> <span
 					id="distro-version">
 					{{
