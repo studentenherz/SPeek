@@ -1,5 +1,27 @@
 window.onload = () => {
 	main();
+
+	let socket = io('/socket');
+	socket.on('connect', () => {
+		socket.emit('ready')
+	});
+
+	var nics;
+
+	socket.on('nics', (data) => {
+		nics = data
+	});
+
+
+	socket.on('networkdata', (data) => {
+		if (data != undefined) {
+			usage = data['usage']
+			nics.forEach((nic, i) => {
+				document.getElementById(`sent-${nic}`).textContent = usage[i][0]
+				document.getElementById(`recv-${nic}`).textContent = usage[i][1]
+			});
+		}
+	});
 };
 
 main = () => {

@@ -39,7 +39,7 @@ User=$(whoami)
 Group=www-data
 WorkingDirectory=${wdir}
 EnvironmentFile=/etc/sysconfig/speek.env
-ExecStart=${wdir}/${env}/bin/gunicorn speek:app -b unix:speek.sock -m 007
+ExecStart=${wdir}/${env}/bin/gunicorn speek:app -k geventwebsocket.gunicorn.workers.GeventWebSocketWorker -w 1 -b unix:speek.sock -m 007
 
 [Install]
 WantedBy=multi-user.target"  > speek.service
@@ -60,13 +60,13 @@ sudo systemctl restart speek
 echo "Step 3: Setting up Nginx configuration."
 
 while true; do
-    read -p "Would you like to set up a domain through Nginx (Y/n)? " yn
+		read -p "Would you like to set up a domain through Nginx (Y/n)? " yn
 		[[ $yn == '' ]] && yn='Y'
-    case $yn in
-        [Yy]* ) cont=true; break;;
-        [Nn]* ) cont=false; break;;
-        * ) echo "Please answer yes or no.";;
-    esac
+		case $yn in
+				[Yy]* ) cont=true; break;;
+				[Nn]* ) cont=false; break;;
+				* ) echo "Please answer yes or no.";;
+		esac
 done
 
 if [ $cont = true ]
@@ -92,6 +92,11 @@ then
 		location / {
 			include proxy_params;
 			proxy_pass http://unix:${wdir}/speek.sock;
+
+			# WebSocket support
+ 			proxy_http_version 1.1;
+			proxy_set_header Upgrade \$http_upgrade;
+			proxy_set_header Connection 'upgrade';
 		}
 	}" > $nginx_site_file
 
@@ -112,7 +117,7 @@ then
 			[[ $yn == '' ]] && yn='Y'
 			case $yn in
 					[Yy]* ) cont=true; break;;
-        	[Nn]* ) cont=false; break;;
+					[Nn]* ) cont=false; break;;
 					* ) echo "Please answer yes or no.";;
 			esac
 	done

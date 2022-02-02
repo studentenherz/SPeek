@@ -11,6 +11,11 @@
 	<link rel="stylesheet" href="/static/css/master.css">
 	<link rel="stylesheet" href="/static/css/gauge.css">
 	<link rel="stylesheet" href="/static/css/fontello.css">
+	<link rel="stylesheet" href="/static/css/fontello.css">
+	<script src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+		integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+		crossorigin="anonymous"></script>
+	<script src="/static/js/main.js"></script>
 	<script src="/static/js/gauge.js"></script>
 </head>
 
@@ -107,8 +112,24 @@
 		</div>
 	</div>
 
+	<div id="network" class="panel">
+		<div class="panel-label">Network</div>
+		<table>
+			<tr>
+				<th> NIC </th>
+				<th> Send (kB/s)</th>
+				<th> Recieve (kB/s)</th>
+			</tr>
+			{% for nic in nics %}
+			<tr>
+				<td> {{ nic }} </td>
+				<td id="sent-{{ nic }}"></td>
+				<td id="recv-{{ nic }}"></td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
 
-	<script src="/static/js/main.js"></script>
 </body>
 
 </html>
