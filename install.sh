@@ -24,7 +24,7 @@ echo "Step 2: Creating systemd service."
 # config file
 [[ ! -d '/etc/sysconfig' ]] && sudo mkdir /etc/sysconfig
 sudo echo \
-"PATH=${wdir}/${env}/bin
+"PATH=${wdir}/${env}/bin:${PATH}
 SPEEK_KEY=$(python -c 'import secrets; print(secrets.token_hex())')" > speek.env
 sudo cp speek.env /etc/sysconfig/
 rm speek.env
