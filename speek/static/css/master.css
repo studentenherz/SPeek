@@ -83,10 +83,13 @@ header a{
 	border-radius: 1.3em 0 0 0;
 	padding: 1em;
 	padding-top: 0;
-	text-align: right;
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
 }
 
 .panel-label{
+	text-align: right;
 	border-bottom: solid var(--soft-color) 1px;
 	font-size: 0.9em;
 	padding: 0.5em;
@@ -97,4 +100,5 @@ header a{
 	flex-wrap: wrap;
 	flex-direction: row;
 	gap: 3em;
+	justify-content: center;
 }

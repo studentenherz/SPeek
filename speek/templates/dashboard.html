@@ -10,6 +10,7 @@
 	<!-- <link rel="alternate icon" href="/static/img/logo-32x32.png"> -->
 	<link rel="stylesheet" href="/static/css/master.css">
 	<link rel="stylesheet" href="/static/css/gauge.css">
+	<link rel="stylesheet" href="/static/css/plot.css">
 	<link rel="stylesheet" href="/static/css/fontello.css">
 	<link rel="stylesheet" href="/static/css/fontello.css">
 	<script src="https://cdn.socket.io/4.4.1/socket.io.min.js"
@@ -17,6 +18,7 @@
 		crossorigin="anonymous"></script>
 	<script src="/static/js/main.js"></script>
 	<script src="/static/js/gauge.js"></script>
+	<script src="/static/js/plot.js"></script>
 </head>
 
 <body>
@@ -114,7 +116,8 @@
 
 	<div id="network" class="panel">
 		<div class="panel-label">Network</div>
-		<table>
+		<div class="panel-body">
+			<!-- <table>
 			<tr>
 				<th> NIC </th>
 				<th> Send (kB/s)</th>
@@ -127,7 +130,17 @@
 				<td id="recv-{{ nic }}"></td>
 			</tr>
 			{% endfor %}
-		</table>
+		</table> -->
+
+
+			<svg id="plot" preserveAspectRatio="xMinYMin meet" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
+				<g class="grid y-grid" id="yGrid"></g>
+				<g class="grid x-grid" id="xGrid"></g>
+				<g class="label y-label" id="yLabel"></g>
+				<g class="label x-label" id="xLabel"></g>
+			</svg>
+
+		</div>
 	</div>
 
 </body>

@@ -1,6 +1,10 @@
 window.onload = () => {
 	main();
+	// socket();
+	plot('plot')
+};
 
+socket = () => {
 	let socket = io('/socket');
 	socket.on('connect', () => {
 		socket.emit('ready')
@@ -22,7 +26,7 @@ window.onload = () => {
 			});
 		}
 	});
-};
+}
 
 main = () => {
 
