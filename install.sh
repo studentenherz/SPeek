@@ -49,10 +49,11 @@ cat speek.service
 echo -e "\n=============== end speek.service ================"
 
 echo -e "Copying Unit file shown above into /etc/systemd/system/ for service setup"
+sudo systemctl stop speek
 sudo cp speek.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable speek
-sudo systemctl restart speek
+sudo systemctl start speek
 
 
 # configure nginx
@@ -97,6 +98,16 @@ then
  			proxy_http_version 1.1;
 			proxy_set_header Upgrade \$http_upgrade;
 			proxy_set_header Connection 'upgrade';
+		}
+
+		location ^~ /static/  {
+    	include  /etc/nginx/mime.types;
+    	root ${wdir}/speek/;
+		}
+
+		location ^~ /templates/  {
+    	include  /etc/nginx/mime.types;
+    	root ${wdir}/speek/;
 		}
 	}" > $nginx_site_file
 
