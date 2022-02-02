@@ -1,7 +1,8 @@
 window.onload = () => {
 	main();
 	// socket();
-	plot('plot')
+	plot = new Plot('plot')
+	plot.plot()
 };
 
 socket = () => {
