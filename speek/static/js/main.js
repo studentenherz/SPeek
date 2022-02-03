@@ -1,30 +1,29 @@
 window.onload = () => {
 	main();
-	// socket();
-	plot = new Plot('plot', 1, 1);
-	plot.plot([[[0.65, 0.89], [0.70, 0.10], [0.80, 0.20], [0.90, 0.90]]]);
+	socket();
 };
 
 socket = () => {
 	let socket = io('/socket');
 	socket.on('connect', () => {
-		socket.emit('ready')
+		socket.emit('ready');
 	});
 
-	var nics;
+	let nics;
+	let plot = new Plot('plot', 60, 3, 2);
 
 	socket.on('nics', (data) => {
-		nics = data
+		nics = data;
 	});
-
 
 	socket.on('networkdata', (data) => {
 		if (data != undefined) {
+			let t = parseFloat(data['timestamp']);
 			usage = data['usage']
-			nics.forEach((nic, i) => {
-				document.getElementById(`sent-${nic}`).textContent = usage[i][0]
-				document.getElementById(`recv-${nic}`).textContent = usage[i][1]
-			});
+			// nics.forEach((nic, i) => {
+
+			// });
+			plot.push([[t, parseFloat(usage[1][0])], [t, parseFloat(usage[1][1])]])
 		}
 	});
 }

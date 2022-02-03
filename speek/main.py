@@ -27,4 +27,4 @@ def send_network_data():
 	while True:
 		newdata = netpeek.peek()
 		emit('networkdata', newdata, namespace='/socket')
-		gevent.sleep(1) 
+		gevent.sleep(0.1) 

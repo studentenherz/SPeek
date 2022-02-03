@@ -1,4 +1,5 @@
 class Plot {
+	static colors = ['#cc1b1b', '#0d258f'];
 	constructor(id, xspan = 100, yspan = 100, nseries = 1) {
 		/** 
 		 * id: id of svg in which to draw the plot
@@ -17,6 +18,7 @@ class Plot {
 			let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 			path.id = `${id}-${i}`;
 			path.classList.add('series');
+			path.setAttribute('stroke', Plot.colors[i]);
 			this.svg.appendChild(path)
 			this.series.push({ 'path': path, 'data': [] });
 		}
@@ -63,13 +65,17 @@ class Plot {
 
 	_update() {
 		this.series.forEach(serie => {
-			const last = serie.data[serie.data.length - 1];
-			const first = serie.data[0];
-			let d = `M${(this.xspan - last[0] + first[0]) * 100 * this.hscale} ${(this.yspan - first[1]) * 100}`;
-			serie.data.slice(1).forEach(point => {
-				d = d.concat(`L${(this.xspan - last[0] + point[0]) * 100 * this.hscale} ${(this.yspan - point[1]) * 100}`);
+			serie.data.reverse();
+			const last = serie.data[0];
+			let d = `M${100 * this.hscale} ${(1 - last[1] / this.yspan) * 100}`;
+			serie.data.slice(1).forEach((point, i) => {
+				if (last[0] - point[0] > this.xspan)
+					serie.data.splice(i);
+				else
+					d = d.concat(`L${(this.xspan - last[0] + point[0]) * 100 * this.hscale / this.xspan} ${(1 - point[1] / this.yspan) * 100}`);
 			});
 			serie.path.setAttribute('d', d);
+			serie.data.reverse();
 		});
 	}
 

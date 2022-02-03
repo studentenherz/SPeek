@@ -59,7 +59,6 @@ class PeekNetwork:
 	def __init__(self):
 		if_stats = ps.net_if_stats()
 		self.nics = list(if_stats.keys())
-		self.speed = [if_stats[nic].speed for nic in self.nics ] # in mega bytes
 		
 		self.time_prev = None
 		self.sent_prev = []
@@ -68,7 +67,7 @@ class PeekNetwork:
 			self.sent_prev.append(None)
 			self.recv_prev.append(None)
 
-	def peek(self, b = 1000):
+	def peek(self, b = 10**6):
 		'''
 			:param: b: multiplier 1000 to get kB, 10**6 to get MB and so on
 		'''
