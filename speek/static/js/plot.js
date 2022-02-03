@@ -1,5 +1,16 @@
 class Plot {
-	constructor(id, nseries = 1) {
+	constructor(id, xspan = 100, yspan = 100, nseries = 1) {
+		/** 
+		 * id: id of svg in which to draw the plot
+		 * xspan, yspan: the span in user units of the graph
+		 * nseries: number of series in the plot
+		 * 
+		 * Internally graph is represented in base 100 for the smaller axis 
+		 * (supposed to be y) and 100 * hscale for the biggest;
+		 * 
+		 * **/
+		this.xspan = xspan;
+		this.yspan = yspan;
 		this.svg = document.getElementById(id);
 		this.series = [];
 		for (let i = 0; i < nseries; i++) {
@@ -28,7 +39,7 @@ class Plot {
 			yGrid.appendChild(line);
 
 			let label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-			label.textContent = y;
+			label.textContent = (y * yspan / 100).toFixed(2);
 			label.setAttribute('x', this.hscale * 100 + 5);
 			label.setAttribute('y', (100 - y));
 			yLabel.appendChild(label);
@@ -43,7 +54,7 @@ class Plot {
 			xGrid.appendChild(lines);
 
 			let label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-			label.textContent = x;
+			label.textContent = ((100 - x) * xspan / 100).toFixed(2);
 			label.setAttribute('x', x * this.hscale);
 			label.setAttribute('y', 100 + 5);
 			xLabel.appendChild(label);
@@ -52,20 +63,28 @@ class Plot {
 
 	_update() {
 		this.series.forEach(serie => {
-			let d = `M${100 * this.hscale} 0`;
-			serie.data.forEach(point => {
-				console.log(point);
-				d = d.concat(`L${point[0] * this.hscale} ${100 - point[1]}`);
+			const last = serie.data[serie.data.length - 1];
+			console.log(last);
+			const first = serie.data[0];
+			console.log(first);
+			let d = `M${(this.xspan - last[0] + first[0]) * 100 * this.hscale} ${(this.yspan - first[1]) * 100}`;
+			serie.data.slice(1).forEach(point => {
+				d = d.concat(`L${(this.xspan - last[0] + point[0]) * 100 * this.hscale} ${(this.yspan - point[1]) * 100}`);
 			});
 			serie.path.setAttribute('d', d);
 		});
 	}
 
-
-
 	plot(series) {
 		this.series.forEach((serie, i) => {
 			serie.data = series[i];
+		});
+		this._update();
+	}
+
+	push(points) {
+		this.series.forEach((serie, i) => {
+			serie.data.push(points[i]);
 		});
 		this._update();
 	}

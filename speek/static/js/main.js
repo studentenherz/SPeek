@@ -1,8 +1,8 @@
 window.onload = () => {
 	main();
 	// socket();
-	plot = new Plot('plot')
-	plot.plot([[[90, 90], [80, 20], [70, 10], [65, 89]]]);
+	plot = new Plot('plot', 1, 1);
+	plot.plot([[[0.65, 0.89], [0.70, 0.10], [0.80, 0.20], [0.90, 0.90]]]);
 };
 
 socket = () => {
