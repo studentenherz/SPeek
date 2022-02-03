@@ -64,9 +64,7 @@ class Plot {
 	_update() {
 		this.series.forEach(serie => {
 			const last = serie.data[serie.data.length - 1];
-			console.log(last);
 			const first = serie.data[0];
-			console.log(first);
 			let d = `M${(this.xspan - last[0] + first[0]) * 100 * this.hscale} ${(this.yspan - first[1]) * 100}`;
 			serie.data.slice(1).forEach(point => {
 				d = d.concat(`L${(this.xspan - last[0] + point[0]) * 100 * this.hscale} ${(this.yspan - point[1]) * 100}`);
