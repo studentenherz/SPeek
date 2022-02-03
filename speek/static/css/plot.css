@@ -1,15 +1,22 @@
-#plot {
+.plot {
 	width: 90%;
 	height: 21em;
 	background-color: var(--soft-color);
 }
 
-#plot g.grid {
+.plot g.grid {
 	stroke-width: 0.02em;
 	stroke: var(--font-color);
 }
 
-#plot g.label {
+.plot g.label {
 	fill: var(--font-color);
 	font-size: 4px;
 }
+
+.plot .series {
+	fill: none;
+	stroke-width: 0.02em;
+	stroke: red;
+}
+

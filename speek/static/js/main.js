@@ -2,7 +2,7 @@ window.onload = () => {
 	main();
 	// socket();
 	plot = new Plot('plot')
-	plot.plot()
+	plot.plot([[[90, 90], [80, 20], [70, 10], [65, 89]]]);
 };
 
 socket = () => {

@@ -101,4 +101,5 @@ header a{
 	flex-direction: row;
 	gap: 3em;
 	justify-content: center;
+	padding-bottom: 1em;
 }
