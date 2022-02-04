@@ -63,36 +63,52 @@ class PeekNetwork:
 		self.time_prev = None
 		self.sent_prev = []
 		self.recv_prev = []
+		self.total_sent_prev = None
+		self.total_recv_prev = None
 		for _ in self.nics:
 			self.sent_prev.append(None)
 			self.recv_prev.append(None)
 
-	def peek(self, b = 10**6):
+	def peek(self, pernic = False, b = 1024):
 		'''
+			:param: pernic: give result per NIC
 			:param: b: multiplier 1000 to get kB, 10**6 to get MB and so on
 		'''
-		counts = ps.net_io_counters(pernic=True, nowrap=True)
+		counts = ps.net_io_counters(pernic=pernic, nowrap=True)
 
 		if self.time_prev == None:
 			self.time_prev = datetime.now()
 
-			for i, nic in enumerate(self.nics):
-				self.sent_prev[i] = counts[nic].bytes_sent
-				self.recv_prev[i] = counts[nic].bytes_recv
+			if pernic:
+				for i, nic in enumerate(self.nics):
+					self.sent_prev[i] = counts[nic].bytes_sent
+					self.recv_prev[i] = counts[nic].bytes_recv
+			else:
+				self.total_sent_prev = counts.bytes_sent
+				self.total_recv_prev = counts.bytes_recv
 
 			return
 
 		now = datetime.now()
 		dt = (now - self.time_prev).total_seconds()
 
-		usage = []
-		for i, nic in enumerate(self.nics):
-			sent = (counts[nic].bytes_sent - self.sent_prev[i]) / (dt * b)
-			recv = (counts[nic].bytes_recv - self.recv_prev[i]) / (dt * b)
-			usage.append((sent, recv))
+		if pernic:
+			usage = []
+			for i, nic in enumerate(self.nics):
+				sent = (counts[nic].bytes_sent - self.sent_prev[i]) / (dt * b)
+				recv = (counts[nic].bytes_recv - self.recv_prev[i]) / (dt * b)
+				usage.append((sent, recv))
 
-			self.sent_prev[i] = counts[nic].bytes_sent
-			self.recv_prev[i] = counts[nic].bytes_recv
+				self.sent_prev[i] = counts[nic].bytes_sent
+				self.recv_prev[i] = counts[nic].bytes_recv
+		else:
+			sent = (counts.bytes_sent - self.total_sent_prev) / (dt * b)
+			recv = (counts.bytes_recv - self.total_recv_prev) / (dt * b)
+			usage = (sent, recv)
+
+			self.total_sent_prev = counts.bytes_sent
+			self.total_recv_prev = counts.bytes_recv
+
 
 		self.time_prev = now
 

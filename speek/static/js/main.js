@@ -9,21 +9,13 @@ socket = () => {
 		socket.emit('ready');
 	});
 
-	let nics;
-	let plot = new Plot('plot', 60, 3, 2);
-
-	socket.on('nics', (data) => {
-		nics = data;
-	});
+	let plot = new Plot('plot', 60, 20, 2);
 
 	socket.on('networkdata', (data) => {
 		if (data != undefined) {
 			let t = parseFloat(data['timestamp']);
 			usage = data['usage']
-			// nics.forEach((nic, i) => {
-
-			// });
-			plot.push([[t, parseFloat(usage[1][0])], [t, parseFloat(usage[1][1])]])
+			plot.push([[t, parseFloat(usage[0])], [t, parseFloat(usage[1])]])
 		}
 	});
 }
