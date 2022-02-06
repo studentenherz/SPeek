@@ -1,5 +1,5 @@
 class Plot {
-	static colors = ['#0d258f', '#cc1b1b'];
+	static colors = ['#cc1b1b', '#0d258f'];
 	constructor(id, xspan = 100, yspan = 100, nseries = 1) {
 		/** 
 		 * id: id of svg in which to draw the plot

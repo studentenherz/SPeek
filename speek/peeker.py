@@ -56,18 +56,25 @@ class PeekNetwork:
 		Class to help with network usage. psutil only gives psutil.net_io_counters
 		so it's needed to keep the previous values in order to get speed.
 	'''
-	def __init__(self):
+	def __init__(self, soften_span = 10):
+		'''
+			:param: soften_span: amount of previous timesteps to perform the soften average
+		'''
 		if_stats = ps.net_if_stats()
 		self.nics = list(if_stats.keys())
 		
-		self.time_prev = None
+		self.soften_span = soften_span
+		self.counter = 0
+		self.time_prev = [None for _ in range(self.soften_span)]
+		self.total_sent_prev = [[] for _ in range(self.soften_span)]
+		self.total_recv_prev = [[] for _ in range(self.soften_span)]
+
+		# for pernics
 		self.sent_prev = []
 		self.recv_prev = []
-		self.total_sent_prev = None
-		self.total_recv_prev = None
 		for _ in self.nics:
-			self.sent_prev.append(None)
-			self.recv_prev.append(None)
+			self.sent_prev.append([[] for _ in range(self.soften_span)])
+			self.recv_prev.append([[] for _ in range(self.soften_span)])
 
 	def peek(self, pernic = False, b = 1024):
 		'''
@@ -76,40 +83,34 @@ class PeekNetwork:
 		'''
 		counts = ps.net_io_counters(pernic=pernic, nowrap=True)
 
-		if self.time_prev == None:
-			self.time_prev = datetime.now()
-
-			if pernic:
-				for i, nic in enumerate(self.nics):
-					self.sent_prev[i] = counts[nic].bytes_sent
-					self.recv_prev[i] = counts[nic].bytes_recv
-			else:
-				self.total_sent_prev = counts.bytes_sent
-				self.total_recv_prev = counts.bytes_recv
-
-			return
-
 		now = datetime.now()
-		dt = (now - self.time_prev).total_seconds()
+		if self.time_prev[self.counter]:
+			dt = (now - self.time_prev[self.counter]).total_seconds()
+		else:
+			dt = None
 
 		if pernic:
 			usage = []
 			for i, nic in enumerate(self.nics):
-				sent = (counts[nic].bytes_sent - self.sent_prev[i]) / (dt * b)
-				recv = (counts[nic].bytes_recv - self.recv_prev[i]) / (dt * b)
-				usage.append((sent, recv))
+				if dt:
+					sent = (counts[nic].bytes_sent - self.sent_prev[i][self.counter]) / (dt * b)
+					recv = (counts[nic].bytes_recv - self.recv_prev[i][self.counter]) / (dt * b)
+					usage.append((sent, recv))
 
-				self.sent_prev[i] = counts[nic].bytes_sent
-				self.recv_prev[i] = counts[nic].bytes_recv
+				self.sent_prev[i][self.counter] = counts[nic].bytes_sent
+				self.recv_prev[i][self.counter] = counts[nic].bytes_recv
 		else:
-			sent = (counts.bytes_sent - self.total_sent_prev) / (dt * b)
-			recv = (counts.bytes_recv - self.total_recv_prev) / (dt * b)
-			usage = (sent, recv)
+			usage = None
+			if dt:
+				sent = (counts.bytes_sent - self.total_sent_prev[self.counter]) / (dt * b)
+				recv = (counts.bytes_recv - self.total_recv_prev[self.counter]) / (dt * b)
+				usage = (sent, recv)
 
-			self.total_sent_prev = counts.bytes_sent
-			self.total_recv_prev = counts.bytes_recv
+			self.total_sent_prev[self.counter] = counts.bytes_sent
+			self.total_recv_prev[self.counter] = counts.bytes_recv
 
 
-		self.time_prev = now
+		self.time_prev[self.counter] = now
+		self.counter = (self.counter + 1) % self.soften_span
 
 		return {'timestamp' : now.timestamp() , 'usage': usage}
