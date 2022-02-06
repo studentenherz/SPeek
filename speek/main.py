@@ -7,7 +7,7 @@ import gevent
 
 main = Blueprint('main', __name__)
 
-netpeek = PeekNetwork(20)
+netpeek = PeekNetwork(10)
 
 @main.route('/')
 @login_required
@@ -27,4 +27,4 @@ def send_network_data():
 	while True:
 		newdata = netpeek.peek()
 		emit('networkdata', newdata, namespace='/socket')
-		gevent.sleep(0.1) 
+		gevent.sleep(0.1)
