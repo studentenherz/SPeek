@@ -7,7 +7,7 @@ import gevent
 
 main = Blueprint('main', __name__)
 
-netpeek = PeekNetwork(10)
+netpeek = PeekNetwork(20)
 
 @main.route('/')
 @login_required
