@@ -26,11 +26,11 @@ class Plot {
 		const height = this.svg.getBoundingClientRect().height;
 		this.hscale = width / height;
 
-		const xGrid = this.svg.querySelector('#xGrid');
-		const yGrid = this.svg.querySelector('#yGrid');
+		const xGrid = this.svg.querySelector('.x-grid');
+		const yGrid = this.svg.querySelector('.y-grid');
 
-		const xLabel = this.svg.querySelector('#xLabel');
-		const yLabel = this.svg.querySelector('#yLabel');
+		const xLabel = this.svg.querySelector('.x-label');
+		const yLabel = this.svg.querySelector('.y-label');
 
 		for (let y = 0; y <= 100; y += 20) {
 			let line = document.createElementNS('http://www.w3.org/2000/svg', 'line');

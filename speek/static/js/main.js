@@ -9,7 +9,7 @@ socket = () => {
 		socket.emit('ready');
 	});
 
-	let plot = new Plot('plot', 4 * 60, 2000, 2);
+	let plot = new Plot('network-plot', 4 * 60, 2000, 2);
 
 	socket.on('networkdata', (data) => {
 		if (data != undefined) {
