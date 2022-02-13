@@ -10,6 +10,8 @@ A simple web-based system indicators monitor.
 
 - [x] Better organize auth and db scripts
 - [x] Add installation (working on Ubuntu 20.4)
-- [ ] Add network status
-- [ ] Graphs
+- [x] Add network status
+- [x] Graphs
 - [x] Add dark theme
+- [ ] Add load and ram graphs
+- [ ] Smoothen graphs
