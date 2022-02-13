@@ -1,5 +1,5 @@
 class Plot {
-	constructor(id, xspan = 100, yspan = 100, series = ['graph-0']) {
+	constructor(id, xspan = 100, yspan = 100, series = ['graph-0'], units = ['', '']) {
 		/** 
 		 * id: id of svg in which to draw the plot
 		 * xspan, yspan: the span in user units of the graph
@@ -10,10 +10,12 @@ class Plot {
 		 * 
 		 * **/
 		this.nseries = series.length;
+		this.units = units;
 		this.xspan = xspan;
 		this.yspan = yspan;
 		this.svg = document.getElementById(id);
 		this.series = [];
+		this.maxy = 0.8 * yspan;
 		for (let i = 0; i < this.nseries; i++) {
 			let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 			path.id = series[i];
@@ -48,7 +50,7 @@ class Plot {
 			this.yGrid.appendChild(line);
 
 			let label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-			label.textContent = (y * this.yspan / 100).toFixed(2);
+			label.textContent = `${(y * this.yspan / 100).toFixed(2)} ${this.units[1]}`;
 			label.setAttribute('x', this.hscale * 100 + 5);
 			label.setAttribute('y', (100 - y));
 			this.yLabel.appendChild(label);
@@ -63,7 +65,7 @@ class Plot {
 			this.xGrid.appendChild(lines);
 
 			let label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-			label.textContent = ((100 - x) * this.xspan / 100).toFixed(2);
+			label.textContent = `${((100 - x) * this.xspan / 100).toFixed(2)} ${this.units[0]}`;
 			label.setAttribute('x', x * this.hscale);
 			label.setAttribute('y', 100 + 5);
 			this.xLabel.appendChild(label);
@@ -71,6 +73,19 @@ class Plot {
 	}
 
 	_update() {
+		let max = 0;
+		this.series.forEach(serie => {
+			serie.data.forEach(xy => {
+				max = Math.max(max, xy[1]);
+			});
+		});
+
+		if (max != this.maxy) {
+			this.maxy = max;
+			this.yspan = this.maxy / 0.8;
+			this.draw_grids();
+		}
+
 		this.series.forEach(serie => {
 			serie.data.reverse();
 			const last = serie.data[0];

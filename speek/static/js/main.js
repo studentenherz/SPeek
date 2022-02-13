@@ -9,7 +9,7 @@ socket = () => {
 		socket.emit('ready');
 	});
 
-	let plot = new Plot('network-plot', 4 * 60, 2000, ['sent', 'recieved']);
+	let plot = new Plot('network-plot', 4 * 60, 2000, ['sent', 'recieved'], ['s', 'kiB/s']);
 
 	window.addEventListener('resize', () => {
 		plot.draw_grids();
