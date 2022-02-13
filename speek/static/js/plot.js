@@ -1,24 +1,23 @@
 class Plot {
-	static colors = ['#cc1b1b', '#0d258f'];
-	constructor(id, xspan = 100, yspan = 100, nseries = 1) {
+	constructor(id, xspan = 100, yspan = 100, series = ['graph-0']) {
 		/** 
 		 * id: id of svg in which to draw the plot
 		 * xspan, yspan: the span in user units of the graph
-		 * nseries: number of series in the plot
+		 * series: ids of series
 		 * 
 		 * Internally graph is represented in base 100 for the smaller axis 
 		 * (supposed to be y) and 100 * hscale for the biggest;
 		 * 
 		 * **/
+		this.nseries = series.length;
 		this.xspan = xspan;
 		this.yspan = yspan;
 		this.svg = document.getElementById(id);
 		this.series = [];
-		for (let i = 0; i < nseries; i++) {
+		for (let i = 0; i < this.nseries; i++) {
 			let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-			path.id = `${id}-${i}`;
+			path.id = series[i];
 			path.classList.add('series');
-			path.setAttribute('stroke', Plot.colors[i]);
 			this.svg.appendChild(path)
 			this.series.push({ 'path': path, 'data': [] });
 		}

@@ -3,8 +3,10 @@
 	--warning-color: #ffbf00;
 	--error-color: #ce2828;
 
-	--font-color: #999999;
 	--button-font: #ffffff;
+
+	--recieved-color: #2b82ce;
+	--sent-color: #e84b40;
 }
 
 @media (prefers-color-scheme: dark){
@@ -12,6 +14,7 @@
 		--soft-color: #3e3e3e;
 		--body-background: #373737;
 		--panel-background: #2d2d2d;
+		--font-color: #999999;
 	}
 } 
 
@@ -20,6 +23,7 @@
 		--soft-color: #f0f0f0;
 		--body-background: #f2f2f2;
 		--panel-background: #ffffff;
+		--font-color: #717171;
 	}
 }
 
