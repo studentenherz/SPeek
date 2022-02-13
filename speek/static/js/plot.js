@@ -21,15 +21,23 @@ class Plot {
 			this.svg.appendChild(path)
 			this.series.push({ 'path': path, 'data': [] });
 		}
+
+		this.xGrid = this.svg.querySelector('.x-grid');
+		this.yGrid = this.svg.querySelector('.y-grid');
+
+		this.xLabel = this.svg.querySelector('.x-label');
+		this.yLabel = this.svg.querySelector('.y-label');
+
+		this.draw_grids();
+	}
+
+	draw_grids() {
 		const width = this.svg.getBoundingClientRect().width;
 		const height = this.svg.getBoundingClientRect().height;
-		this.hscale = width / height;
+		this.hscale = width * (130 / 120) / height;
 
-		const xGrid = this.svg.querySelector('.x-grid');
-		const yGrid = this.svg.querySelector('.y-grid');
-
-		const xLabel = this.svg.querySelector('.x-label');
-		const yLabel = this.svg.querySelector('.y-label');
+		this.svg.querySelectorAll('line').forEach(line => line.remove());
+		this.svg.querySelectorAll('text').forEach(text => text.remove());
 
 		for (let y = 0; y <= 100; y += 20) {
 			let line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -37,13 +45,13 @@ class Plot {
 			line.setAttribute('x2', this.hscale * 100);
 			line.setAttribute('y1', y);
 			line.setAttribute('y2', y);
-			yGrid.appendChild(line);
+			this.yGrid.appendChild(line);
 
 			let label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-			label.textContent = (y * yspan / 100).toFixed(2);
+			label.textContent = (y * this.yspan / 100).toFixed(2);
 			label.setAttribute('x', this.hscale * 100 + 5);
 			label.setAttribute('y', (100 - y));
-			yLabel.appendChild(label);
+			this.yLabel.appendChild(label);
 		}
 
 		for (let x = 0; x <= 100; x += 20) {
@@ -52,13 +60,13 @@ class Plot {
 			lines.setAttribute('x2', x * this.hscale);
 			lines.setAttribute('y1', 0);
 			lines.setAttribute('y2', 100);
-			xGrid.appendChild(lines);
+			this.xGrid.appendChild(lines);
 
 			let label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-			label.textContent = ((100 - x) * xspan / 100).toFixed(2);
+			label.textContent = ((100 - x) * this.xspan / 100).toFixed(2);
 			label.setAttribute('x', x * this.hscale);
 			label.setAttribute('y', 100 + 5);
-			xLabel.appendChild(label);
+			this.xLabel.appendChild(label);
 		}
 	}
 

@@ -11,6 +11,10 @@ socket = () => {
 
 	let plot = new Plot('network-plot', 4 * 60, 2000, ['sent', 'recieved']);
 
+	window.addEventListener('resize', () => {
+		plot.draw_grids();
+	});
+
 	socket.on('networkdata', (data) => {
 		if (data != undefined) {
 			let t = parseFloat(data['timestamp']);
